@@ -1,2 +1,2 @@
-# Express_orm
-default express busuk , mending sekalian ikutin strucktur laravel 
+# Express x laravel
+default express busuk🤮🤮, mending sekalian ikutin strucktur laravel 😎😎
