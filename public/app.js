@@ -13,7 +13,6 @@ app.use("/storage", express.static(path.join(__dirname, "../storage")));
 
 app.use("/", webRoutes);
 
-// Jalankan server
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
 });

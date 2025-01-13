@@ -1,60 +1,38 @@
-const { db } = require("../../config/server");
-
-const table = "News";
+// models/news.js
+const Database = require("../../config/database");
 
 const News = {
-  getAll: (callback) => {
-    const query = "SELECT * FROM " + table;
-    db.query(query, (err, results) => {
-      if (err) {
-        callback(err, null);
-      } else {
-        callback(null, results);
-      }
-    });
+  table: "News",
+  fillable: ["title", "content_desc", "short_desc", "created_at", "image"],
+
+  getAll(callback) {
+    Database.getAll(this.table, callback);
   },
 
-  create: (data, callback) => {
-    const query = "INSERT INTO " + table + " SET ?";
-    db.query(query, data, (err, results) => {
-      if (err) {
-        callback(err, null);
-      } else {
-        callback(null, results);
+  create(data, callback) {
+    // Filter data berdasarkan fillable
+    const filteredData = {};
+    this.fillable.forEach((field) => {
+      if (data[field] !== undefined) {
+        filteredData[field] = data[field];
       }
     });
+    Database.create(this.table, filteredData, callback);
   },
 
-  // Contoh fungsi tambahan (misalnya mencari user berdasarkan ID)
-  findById: (id, callback) => {
-    const query = "SELECT * FROM " + table + " WHERE id = ?";
-    db.query(query, [id], (err, results) => {
-      if (err) {
-        callback(err, null);
-      } else {
-        callback(null, results[0]);
+  findById(id, callback) {
+    Database.findById(this.table, id, callback);
+  },
+
+  update(id, data, callback) {
+    // Filter data berdasarkan fillable
+    const filteredData = {};
+    this.fillable.forEach((field) => {
+      if (data[field] !== undefined) {
+        filteredData[field] = data[field];
       }
     });
-  },
-  update: (id, data, callback) => {
-    const { title, desc, short_desc, created_at, image } = data;
-
-    const query =
-      `UPDATE ` +
-      table +
-      ` SET title = ?, \`desc\` = ?, short_desc = ?, created_at = ?, image = ? WHERE id = ?`;
-
-    db.query(
-      query,
-      [title, desc, short_desc, created_at, image, id],
-      (err, results) => {
-        if (err) {
-          console.error("Error executing query:", err); // Debug error
-          return callback(err, null);
-        }
-        callback(null, results);
-      }
-    );
+    Database.update(this.table, id, filteredData, callback);
   },
 };
 

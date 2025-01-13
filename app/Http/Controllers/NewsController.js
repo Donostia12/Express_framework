@@ -16,12 +16,12 @@ exports.create = (req, res) => {
 };
 
 exports.store = (req, res) => {
-  const { title, desc, short_desc, created_at } = req.body;
+  const { title, content_desc, short_desc, created_at } = req.body;
   const image = req.file ? req.file.filename : null;
 
   const newsData = {
     title,
-    desc,
+    content_desc,
     short_desc,
     created_at,
     image,
@@ -53,7 +53,7 @@ exports.show = (req, res) => {
 
 exports.update = (req, res) => {
   const id = req.params.id;
-  const { title, content, desc, short_desc, created_at } = req.body;
+  const { title, content_desc, short_desc, created_at } = req.body;
   let image = req.body.oldImage;
 
   if (req.file) {
@@ -74,7 +74,7 @@ exports.update = (req, res) => {
   // Update data berita
   News.update(
     id,
-    { title, content, desc, short_desc, created_at, image },
+    { title, content_desc, short_desc, created_at, image },
     (err, results) => {
       if (err) {
         console.error(err);
@@ -83,6 +83,8 @@ exports.update = (req, res) => {
       if (!results) {
         return res.status(404).send("News not found");
       }
+      console.log({ title, content_desc, short_desc, created_at, image });
+
       res.redirect("/news"); // Arahkan kembali ke halaman detail berita
     }
   );

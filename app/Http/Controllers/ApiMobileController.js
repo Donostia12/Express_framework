@@ -20,7 +20,7 @@ exports.index = (req, res) => {
       return {
         title: item.title,
         short_desc: item.short_desc,
-        desc: item.desc,
+        desc: item.content_desc,
         image: item.image,
         created_at: formatDate(item.created_at),
       };
