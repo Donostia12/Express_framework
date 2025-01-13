@@ -81,3 +81,16 @@ exports.update = (req, res) => {
     }
   );
 };
+exports.delete = (req, res) => {
+  const { id } = req.params;
+  Service.delete(id, (err, results) => {
+    if (err) {
+      console.error("Error deleting service:", err);
+      return res.status(500).send("Server Error");
+    }
+    if (!results) {
+      return res.status(404).send("Service not found");
+    }
+    res.redirect("/service");
+  });
+};

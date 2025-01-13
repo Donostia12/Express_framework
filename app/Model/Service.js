@@ -10,7 +10,6 @@ const News = {
   },
 
   create(data, callback) {
-    // Filter data berdasarkan fillable
     const filteredData = {};
     this.fillable.forEach((field) => {
       if (data[field] !== undefined) {
@@ -25,7 +24,6 @@ const News = {
   },
 
   update(id, data, callback) {
-    // Filter data berdasarkan fillable
     const filteredData = {};
     this.fillable.forEach((field) => {
       if (data[field] !== undefined) {
@@ -33,6 +31,17 @@ const News = {
       }
     });
     Database.update(this.table, id, filteredData, callback);
+  },
+  delete(id, callback) {
+    Database.delete(this.table, id, (err, results) => {
+      if (err) {
+        return callback(err, null);
+      }
+      if (results.affectedRows === 0) {
+        return callback(null, false);
+      }
+      callback(null, results);
+    });
   },
 };
 
