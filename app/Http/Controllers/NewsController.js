@@ -88,14 +88,19 @@ exports.update = (req, res) => {
       res.redirect("/news"); // Arahkan kembali ke halaman detail berita
     }
   );
+};
+exports.delete = (req, res) => {
+  const { id } = req.params;
 
   News.delete(id, (err, results) => {
     if (err) {
-      console.error(err);
+      console.error("Error deleting news:", err);
       return res.status(500).send("Server Error");
     }
     if (!results) {
       return res.status(404).send("News not found");
     }
+
+    res.redirect("/news"); // Arahkan ke halaman daftar berita
   });
 };

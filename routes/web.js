@@ -21,8 +21,21 @@ router.post(
 router.get("/news/api", ApiMobile.index);
 router.get("/", IndexController.index);
 router.get("/news", NewsController.index);
+router.get("/news/delete/:id", NewsController.delete);
 router.get("/news/edit/:id", NewsController.show);
 router.get("/service", ServiceController.index);
 // routes.get("/service/edit/:id", ServiceController.show);
-router.get("/service/create", ServiceController.store);
+router.get("/service/create", ServiceController.create);
+router.post(
+  "/service/store",
+  Storage.upload.single("image"),
+  ServiceController.store
+);
+router.get("/service/edit/:id", ServiceController.show);
+
+router.post(
+  "/service/update/:id",
+  Storage.upload.single("image"),
+  ServiceController.update
+);
 module.exports = router;
