@@ -18,7 +18,8 @@ router.post(
   Storage.upload.single("image"),
   NewsController.store
 );
-router.get("/news/api", ApiMobile.index);
+router.get("/news/api", ApiMobile.news);
+router.get("/service/api", ApiMobile.service);
 router.get("/", IndexController.index);
 router.get("/news", NewsController.index);
 router.get("/news/delete/:id", NewsController.delete);
