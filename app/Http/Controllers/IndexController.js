@@ -7,18 +7,17 @@ exports.index = (req, res) => {
     if (err) {
       console.error(err);
     }
-    res.render("index", { title: "Halaman Utama", results });
+    res.render("news/index", { title: "Halaman Utama", results });
   });
 };
 
 exports.create = (req, res) => {
-  res.render("createnews", { title: "Buat Berita Baru" });
+  res.render("news/create", { title: "Buat Berita Baru" });
 };
 
 exports.store = (req, res) => {
-
   const { title, desc, short_desc, created_at } = req.body;
-  const image = req.file ? req.file.filename : null; 
+  const image = req.file ? req.file.filename : null;
 
   const newsData = {
     title,
@@ -34,7 +33,7 @@ exports.store = (req, res) => {
       return res.status(500).send("Server Error");
     }
 
-    res.redirect("/"); 
+    res.redirect("/");
   });
 };
 exports.show = (req, res) => {
@@ -48,17 +47,17 @@ exports.show = (req, res) => {
       return res.status(404).send("News not found");
     }
 
-    res.render("shownews", { title: "Detail Berita", results });
+    res.render("news/show", { title: "Detail Berita", results });
   });
 };
 
 exports.update = (req, res) => {
   const id = req.params.id;
   const { title, content, desc, short_desc, created_at } = req.body;
-  let image = req.body.oldImage; 
+  let image = req.body.oldImage;
 
   if (req.file) {
-    image = req.file.filename; 
+    image = req.file.filename;
 
     const oldImagePath = path.join(
       __dirname,

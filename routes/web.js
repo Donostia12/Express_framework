@@ -1,8 +1,8 @@
 const express = require("express");
 const router = express.Router();
-const IndexController = require("../app/Http/Controllers/IndexController.js");
-const ApiMobile = require("../app/Http/Controllers/ApiMobileController.js");
-const Storage = require("../app/Http/Providers/storage.js");
+const IndexController = require("../app/Http/Controllers/IndexController");
+const ApiMobile = require("../app/Http/Controllers/ApiMobileController");
+const Storage = require("../app/Http/Providers/storage");
 
 // Rute untuk update
 router.post(

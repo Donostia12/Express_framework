@@ -1,4 +1,4 @@
-<%- include('partials/header') %>
+<%- include('../partials/header') %>
 
 <!-- Pembungkus Form -->
 <div class="container my-5">
@@ -35,11 +35,8 @@
 
                 <div class="mb-3">
                     <label for="created_at" class="form-label">Tanggal Dibuat</label>
-                    <input type="hidden" class="form-control" id="created_at" name="created_at" value="<%= results.created_at %>" required>
+                    <input type="datetime-local" class="form-control" id="created_at" name="created_at" value="<%= new Date(results.created_at).toISOString().slice(0, 16) %>">
 
-                <br>
-                    <%= results.created_at %>
-                </div>
 
                 <button type="submit" class="btn btn-primary">Update</button>
                 <a href="/" class="btn btn-secondary">Batal</a>
@@ -48,4 +45,4 @@
     </div>
 </div>
 
-<%- include('partials/footer') %>
+<%- include('../partials/footer') %>
