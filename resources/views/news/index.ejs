@@ -8,7 +8,7 @@
         <table class="table table-bordered table-striped table-hover table-sm">
             <thead>
                 <tr>
-                    <th> <a href="/create" class="btn btn-success btn-sm">
+                    <th> <a href="/news/create" class="btn btn-success btn-sm">
                         <i class="fas fa-plus-circle"></i> 
                     </a></th>
                     <th>Title</th>
@@ -38,10 +38,10 @@
                         <td><%= news.created_at %></td>
                         <td>
                             <!-- Action buttons -->
-                            <a href="/edit/<%= news.id %>" class="btn btn-warning btn-sm">
+                            <a href="/news/edit/<%= news.id %>" class="btn btn-warning btn-sm">
                                 <i class="fas fa-edit"></i> 
                             </a>
-                            <a href="/delete/<%= news.id %>" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this item?')">
+                            <a href="/news/delete/<%= news.id %>" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this item?')">
                                 <i class="fas fa-trash-alt"></i> 
                             </a>
                            <!-- This can link to a create page -->

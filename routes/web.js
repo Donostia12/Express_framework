@@ -1,18 +1,24 @@
 const express = require("express");
 const router = express.Router();
-const IndexController = require("../app/Http/Controllers/IndexController");
+const NewsController = require("../app/Http/Controllers/NewsController");
 const ApiMobile = require("../app/Http/Controllers/ApiMobileController");
+const IndexController = require("../app/Http/Controllers/IndexController");
 const Storage = require("../app/Http/Providers/storage");
 
 // Rute untuk update
 router.post(
-  "/update/:id",
+  "/news/update/:id",
   Storage.upload.single("image"),
-  IndexController.update
+  NewsController.update
 );
-router.get("/create", IndexController.create);
-router.post("/store", Storage.upload.single("image"), IndexController.store);
-router.get("/api", ApiMobile.index);
+router.get("/news/create", NewsController.create);
+router.post(
+  "/news/store",
+  Storage.upload.single("image"),
+  NewsController.store
+);
+router.get("/news/api", ApiMobile.index);
 router.get("/", IndexController.index);
-router.get("/edit/:id", IndexController.show);
+router.get("/news", NewsController.index);
+router.get("/news/edit/:id", NewsController.show);
 module.exports = router;
