@@ -78,3 +78,4 @@ router.post(
   Storage.upload.single("image"),
   PorfolioController.update
 );
+router.get("/portfolio/delete/:id", PorfolioController.delete);

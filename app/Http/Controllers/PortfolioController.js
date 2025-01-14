@@ -80,3 +80,17 @@ exports.update = (req, res) => {
     res.redirect("/portfolio");
   });
 };
+
+exports.delete = (req, res) => {
+  const id = req.params.id;
+  Portfolio.delete(id, (err, results) => {
+    if (err) {
+      console.error("Error deleting news:", err);
+      return res.status(500).send("Server Error");
+    }
+    if (!results) {
+      return res.status(404).send("News not found");
+    }
+    res.redirect("/portfolio");
+  });
+};
