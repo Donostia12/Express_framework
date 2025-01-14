@@ -6,10 +6,12 @@ const IndexController = require("../app/Http/Controllers/IndexController");
 const Storage = require("../app/Http/Providers/storage");
 const ServiceController = require("../app/Http/Controllers/ServiceController");
 const ProductController = require("../app/Http/Controllers/ProductController");
+const PorfolioController = require("../app/Http/Controllers/PortfolioController");
 //rute untuk api
 router.get("/news/api", ApiMobile.news);
 router.get("/service/api", ApiMobile.service);
 router.get("/product/api", ApiMobile.Product);
+router.get("/portfolio/api", ApiMobile.portofolio);
 // Rute untuk news
 router.post(
   "/news/update/:id",
@@ -60,4 +62,13 @@ router.post(
   ProductController.update
 );
 router.get("/product/delete/:id", ProductController.delete);
+
+//portofolio
+router.get("/portfolio", PorfolioController.index);
+router.get("/portfolio/create", PorfolioController.create);
+router.post(
+  "/portfolio/store",
+  Storage.upload.single("image"),
+  PorfolioController.store
+);
 module.exports = router;

@@ -1,9 +1,9 @@
-// models/portopolio.js
+// models/portfolio.js
 const Database = require("../../config/database");
 
-const Portopolio = {
-  table: "Portopolio",
-  fillable: [],
+const Portfolio = {
+  table: "Portfolio",
+  fillable: ["title", "image", "created_at"],
 
   getAll(callback) {
     Database.getAll(this.table, callback);
@@ -46,4 +46,4 @@ const Portopolio = {
   },
 };
 
-module.exports = Portopolio;
+module.exports = Portfolio;
