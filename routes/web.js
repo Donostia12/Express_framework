@@ -5,7 +5,7 @@ const ApiMobile = require("../app/Http/Controllers/ApiMobileController");
 const IndexController = require("../app/Http/Controllers/IndexController");
 const Storage = require("../app/Http/Providers/storage");
 const ServiceController = require("../app/Http/Controllers/ServiceController");
-
+const ProductController = require("../app/Http/Controllers/ProductController");
 //rute untuk api
 router.get("/news/api", ApiMobile.news);
 router.get("/service/api", ApiMobile.service);
@@ -44,4 +44,14 @@ router.post(
   ServiceController.update
 );
 router.get("/service/delete/:id", ServiceController.delete);
+
+//route untuk product
+router.get("/product", ProductController.index);
+router.get("/product/create", ProductController.create);
+router.post(
+  "/product/store",
+  Storage.upload.single("image"),
+  ProductController.store
+);
+router.get("/product/edit/:id", ProductController.show);
 module.exports = router;
