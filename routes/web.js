@@ -71,4 +71,10 @@ router.post(
   Storage.upload.single("image"),
   PorfolioController.store
 );
+router.get("/portfolio/edit/:id", PorfolioController.show);
 module.exports = router;
+router.post(
+  "/portfolio/update/:id",
+  Storage.upload.single("image"),
+  PorfolioController.update
+);

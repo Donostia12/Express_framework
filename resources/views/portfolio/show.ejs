@@ -5,10 +5,10 @@
     <div class="card shadow-sm">
         <div class="card-body">
 
-            <h1>Edit Berita: <%= results.title %></h1>
+            <h1>Edit Portpolio : <%= results.title %></h1>
 
             <!-- Form Edit Berita -->
-            <form action="/product/update/<%= results.id %>" method="POST" enctype="multipart/form-data">
+            <form action="/portfolio/update/<%= results.id %>" method="POST" enctype="multipart/form-data">
                 <div class="mb-3">
                     <label for="title" class="form-label">Judul</label>
                     <input type="text" class="form-control" id="title" name="title" value="<%= results.title %>" required>
@@ -24,22 +24,12 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="desc" class="form-label">Deskripsi</label>
-                    <textarea class="form-control" id="content_desc	" name="content_desc" rows="3" required><%= results.content_desc%></textarea>
-                </div>
-
-                <div class="mb-3">
-                    <label for="short_desc" class="form-label">Deskripsi Singkat</label>
-                    <textarea class="form-control" id="short_desc" name="short_desc" rows="3" required><%= results.short_desc %></textarea>
-                </div>
-
-                <div class="mb-3">
                     <label for="created_at" class="form-label">Tanggal Dibuat</label>
                     <input type="datetime-local" class="form-control" id="created_at" name="created_at" value="<%= new Date(results.created_at).toISOString().slice(0, 16) %>">
 
 
                 <button type="submit" class="btn btn-primary">Update</button>
-                <a href="/" class="btn btn-secondary">Batal</a>
+                <a href="/portfolio" class="btn btn-secondary">Batal</a>
             </form>
         </div>
     </div>
