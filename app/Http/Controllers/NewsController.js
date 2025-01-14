@@ -1,12 +1,14 @@
 const News = require("../../Model/News");
 const path = require("path");
 const fs = require("fs");
+const { debug } = require("console");
 
 exports.index = (req, res) => {
   News.getAll((err, results) => {
     if (err) {
       console.error(err);
     }
+    console.log(results);
     res.render("news/index", { title: "Halaman Utama", results });
   });
 };
