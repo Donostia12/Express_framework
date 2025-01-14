@@ -8,7 +8,7 @@ exports.index = (req, res) => {
     if (err) {
       console.error(err);
     }
-    console.log(results);
+
     res.render("news/index", { title: "Halaman Utama", results });
   });
 };
@@ -85,7 +85,6 @@ exports.update = (req, res) => {
       if (!results) {
         return res.status(404).send("News not found");
       }
-      console.log({ title, content_desc, short_desc, created_at, image });
 
       res.redirect("/news"); // Arahkan kembali ke halaman detail berita
     }

@@ -1,5 +1,6 @@
 const Product = require("../../Model/Product");
-
+const fs = require("fs");
+const path = require("path");
 exports.index = (req, res) => {
   Product.getAll((err, results) => {
     if (err) {
@@ -45,5 +46,56 @@ exports.show = (req, res) => {
       return res.status(404).send("Product not found");
     }
     res.render("product/show", { title: "Detail Produk", results });
+  });
+};
+
+exports.update = (req, res) => {
+  const id = req.params.id;
+  const { title, content_desc, short_desc, created_at } = req.body;
+  let image = req.body.oldImage;
+
+  if (req.file) {
+    image = req.file.filename;
+
+    const oldImagePath = path.join(
+      __dirname,
+      "../../storage",
+      req.body.oldImage
+    );
+    if (fs.existsSync(oldImagePath)) {
+      fs.unlink(oldImagePath, (err) => {
+        if (err) console.error("Error deleting old image:", err);
+      });
+    }
+  }
+
+  Product.update(
+    id,
+    { title, content_desc, short_desc, created_at, image },
+    (err, results) => {
+      if (err) {
+        console.error(err);
+        return res.status(500).send("Server Error");
+      }
+      if (!results) {
+        return res.status(404).send("News not found");
+      }
+
+      res.redirect("/product");
+    }
+  );
+};
+
+exports.delete = (req, res) => {
+  const { id } = req.params;
+  Product.delete(id, (err, results) => {
+    if (err) {
+      console.error("Error deleting product:", err);
+      return res.status(500).send("Server Error");
+    }
+    if (!results) {
+      return res.status(404).send("Product not found");
+    }
+    res.redirect("/product");
   });
 };

@@ -54,4 +54,10 @@ router.post(
   ProductController.store
 );
 router.get("/product/edit/:id", ProductController.show);
+router.post(
+  "/product/update/:id",
+  Storage.upload.single("image"),
+  ProductController.update
+);
+router.get("/product/delete/:id", ProductController.delete);
 module.exports = router;

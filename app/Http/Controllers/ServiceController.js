@@ -13,8 +13,6 @@ exports.create = (req, res) => {
   res.render("service/create", { title: "Buat service Baru" });
 };
 exports.store = (req, res) => {
-  console.log(req.body);
-
   const { title, short_desc, content_desc, created_at } = req.body;
 
   const image = req.file ? req.file.filename : null;
@@ -75,7 +73,6 @@ exports.update = (req, res) => {
       if (!results) {
         return res.status(404).send("News not found");
       }
-      console.log({ title, content_desc, short_desc, created_at, image });
 
       res.redirect("/service");
     }

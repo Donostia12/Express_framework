@@ -1,7 +1,7 @@
 const mysql = require("mysql");
 
 const db = mysql.createConnection({
-  host: "192.168.1.3",
+  host: "192.168.1.6",
   user: "root",
   password: "",
   database: "apibaligatra",

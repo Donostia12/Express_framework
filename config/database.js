@@ -45,7 +45,7 @@ const Database = {
       if (err) {
         return callback(err, null);
       }
-      callback(null, results); // Kembalikan hasil query (contoh affectedRows)
+      callback(null, results);
     });
   },
 };
