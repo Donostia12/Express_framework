@@ -52,7 +52,7 @@ exports.service = (req, res) => {
     });
   });
 };
-exports.service = (req, res) => {
+exports.Product = (req, res) => {
   Product.getAll((err, results) => {
     if (err) {
       console.error(err);

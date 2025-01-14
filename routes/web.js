@@ -9,7 +9,7 @@ const ProductController = require("../app/Http/Controllers/ProductController");
 //rute untuk api
 router.get("/news/api", ApiMobile.news);
 router.get("/service/api", ApiMobile.service);
-router.get("/product/api", ApiMobile.product);
+router.get("/product/api", ApiMobile.Product);
 // Rute untuk news
 router.post(
   "/news/update/:id",
