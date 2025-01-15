@@ -1,5 +1,5 @@
-const Portfolio = require("../../Model/portfolio");
-const portfolio = require("../../Model/portfolio");
+const Portfolio = require("../../Model/Portfolio");
+
 const path = require("path");
 const fs = require("fs");
 

@@ -4,7 +4,7 @@ const fs = require("fs");
 exports.index = (req, res) => {
   Service.getAll((err, results) => {
     if (err) {
-      console.error(err);
+      console.log(err);
     }
     res.render("service/index", { title: "Halaman Utama", results });
   });
