@@ -3,7 +3,7 @@ const Database = require("../../config/database");
 
 const About = {
   table: "about",
-  fillable: [],
+  fillable: ["short_desc", "content_desc", "image"],
 
   getAll(callback) {
     Database.getAll(this.table, callback);

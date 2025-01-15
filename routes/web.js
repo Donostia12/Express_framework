@@ -83,3 +83,8 @@ router.get("/portfolio/delete/:id", PorfolioController.delete);
 
 //about
 router.get("/about/:id", AboutController.show);
+router.post(
+  "/about/update/:id",
+  Storage.upload.single("image"),
+  AboutController.update
+);

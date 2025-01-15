@@ -5,14 +5,10 @@
     <div class="card shadow-sm">
         <div class="card-body">
 
-            <h1>edit about us: <%= results.title %></h1>
+            <h1> about us: <%= results.title %></h1>
 
-            <!-- Form Edit Berita -->
-            <form action="/news/update/<%= results.id %>" method="POST" enctype="multipart/form-data">
-                <div class="mb-3">
-                    <label for="title" class="form-label">Judul</label>
-                    <input type="text" class="form-control" id="title" name="title" value="<%= results.title %>" required>
-                </div>
+            <form action="/about/update/<%= results.id %>" method="POST" enctype="multipart/form-data">
+            
 
                 <div class="mb-3">
                     <label for="image" class="form-label">Gambar</label>
