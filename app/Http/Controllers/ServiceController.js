@@ -1,4 +1,4 @@
-const Service = require("../../Model/Service");
+const Service = require("app/Model/Service");
 const path = require("path");
 const fs = require("fs");
 exports.index = (req, res) => {

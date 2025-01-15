@@ -1,7 +1,7 @@
-const news = require("../../Model/News");
-const Product = require("../../Model/Product");
-const service = require("../../Model/Service");
-const portofolio = require("../../Model/Product");
+const news = require("app/Model/News");
+const Product = require("app/Model/Product");
+const service = require("app/Model/Service");
+const portofolio = require("app/Model/Portfolio");
 function formatDate(dateString) {
   const date = new Date(dateString);
   const options = {

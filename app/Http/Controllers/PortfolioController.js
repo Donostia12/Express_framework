@@ -1,10 +1,10 @@
-const Portfolio = require("../../Model/Portfolio");
+const Portfolio = require("app/Model/Portfolio");
 
 const path = require("path");
 const fs = require("fs");
 
 exports.index = (req, res) => {
-  portfolio.getAll((err, result) => {
+  Portfolio.getAll((err, result) => {
     if (err) {
       console.error(err);
     }
@@ -25,7 +25,7 @@ exports.store = (req, res) => {
     image,
   };
 
-  portfolio.create(newsData, (err, results) => {
+  Portfolio.create(newsData, (err, results) => {
     if (err) {
       console.error("Error creating news:", err);
       return res.status(500).send("Server Error");
@@ -37,7 +37,7 @@ exports.store = (req, res) => {
 
 exports.show = (req, res) => {
   const id = req.params.id;
-  portfolio.findById(id, (err, results) => {
+  Portfolio.findById(id, (err, results) => {
     if (err) {
       console.error(err);
       return res.status(500).send("Server Error");

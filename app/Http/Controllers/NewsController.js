@@ -1,4 +1,4 @@
-const News = require("../../Model/News");
+const News = require("app/Model/News");
 const path = require("path");
 const fs = require("fs");
 const { debug } = require("console");
