@@ -2,7 +2,7 @@
 const Database = require("../../config/database");
 
 const Portfolio = {
-  table: "Portfolio",
+  table: "portfolio",
   fillable: ["title", "image", "created_at"],
 
   getAll(callback) {

@@ -2,7 +2,7 @@
 const Database = require("../../config/database");
 
 const News = {
-  table: "News",
+  table: "news",
   fillable: ["title", "content_desc", "short_desc", "created_at", "image"],
 
   getAll(callback) {

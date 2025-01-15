@@ -1,9 +1,9 @@
-// models/news.js
+// models/about.js
 const Database = require("../../config/database");
 
-const News = {
-  table: "services",
-  fillable: ["title", "content_desc", "short_desc", "created_at", "image"],
+const About = {
+  table: "about",
+  fillable: [],
 
   getAll(callback) {
     Database.getAll(this.table, callback);
@@ -32,17 +32,18 @@ const News = {
     });
     Database.update(this.table, id, filteredData, callback);
   },
+
   delete(id, callback) {
     Database.delete(this.table, id, (err, results) => {
       if (err) {
         return callback(err, null);
       }
       if (results.affectedRows === 0) {
-        return callback(null, false);
+        return callback(null, false); // Tidak ada baris yang dihapus
       }
       callback(null, results);
     });
   },
 };
 
-module.exports = News;
+module.exports = About;
