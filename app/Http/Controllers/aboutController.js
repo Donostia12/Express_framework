@@ -1,4 +1,4 @@
-const about = require("app/Model/About");
+const about = require("../../Model/About");
 const path = require("path");
 const fs = require("fs");
 

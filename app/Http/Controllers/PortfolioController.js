@@ -1,4 +1,4 @@
-const Portfolio = require("app/Model/Portfolio");
+const Portfolio = require("../../Model/Portfolio");
 
 const path = require("path");
 const fs = require("fs");

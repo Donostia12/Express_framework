@@ -1,4 +1,4 @@
-const Product = require("app/Model/Product");
+const Product = require("../../Model/Product");
 const fs = require("fs");
 const path = require("path");
 exports.index = (req, res) => {

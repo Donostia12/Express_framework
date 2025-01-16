@@ -1,14 +1,15 @@
 const express = require("express");
 const router = express.Router();
-const NewsController = require("app/Http/Controllers/NewsController");
-const ApiMobile = require("app/Http/Controllers/ApiMobileController");
-const IndexController = require("app/Http/Controllers/IndexController");
-const Storage = require("app/Http/Providers/storage");
-const ServiceController = require("app/Http/Controllers/ServiceController");
-const ProductController = require("app/Http/Controllers/ProductController");
-const PorfolioController = require("app/Http/Controllers/PortfolioController");
-const AboutController = require("app/Http/Controllers/AboutController");
+const NewsController = require("../app/Http/Controllers/NewsController");
+const ApiMobile = require("../app/Http/Controllers/ApiMobileController");
+const IndexController = require("../app/Http/Controllers/IndexController");
+const Storage = require("../app/Http/Providers/storage");
+const ServiceController = require("../app/Http/Controllers/ServiceController");
+const ProductController = require("../app/Http/Controllers/ProductController");
+const PorfolioController = require("../app/Http/Controllers/PortfolioController");
+const AboutController = require("../app/Http/Controllers/aboutController");
 //rute untuk api
+router.get("/about/api", ApiMobile.about);
 router.get("/news/api", ApiMobile.news);
 router.get("/service/api", ApiMobile.service);
 router.get("/product/api", ApiMobile.Product);
