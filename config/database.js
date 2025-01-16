@@ -38,7 +38,6 @@ const Database = {
     });
   },
 
-  // Fungsi untuk delete
   delete(table, id, callback) {
     const query = `DELETE FROM ${table} WHERE id = ?`;
     db.query(query, [id], (err, results) => {
