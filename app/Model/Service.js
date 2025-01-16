@@ -28,6 +28,7 @@ const News = {
     this.fillable.forEach((field) => {
       if (data[field] !== undefined) {
         filteredData[field] = data[field];
+        // Call the Database create method with the table name and filtered data
       }
     });
     Database.update(this.table, id, filteredData, callback);
