@@ -2,6 +2,7 @@ const about = require("../../Model/About");
 const path = require("path");
 const fs = require("fs");
 
+//learn from youtube
 exports.show = (req, res) => {
   about.findById(1, (err, results) => {
     if (err) {
