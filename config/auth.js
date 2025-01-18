@@ -34,9 +34,9 @@ const Auth = {
 
   user(field = null) {
     if (!session.user) {
-      return null; // Jika user belum login
+      return null;
     }
-    // Jika field ada, kembalikan field tersebut, jika tidak kembalikan seluruh user
+
     return field ? session.user[field] : session.user;
   },
 

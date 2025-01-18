@@ -32,3 +32,11 @@ setTimeout(() => {
     console.log(result);
   });
 }, 2500);
+setTimeout(() => {
+  Hash.verify(
+    "123",
+    "$2b$05$VaMAXHhQh7SUPOIPMlKke.5RB265OZhtiahTzGzTgX359GrjhMjJy"
+  ).then((result) => {
+    console.log(result);
+  });
+}, 2500);
