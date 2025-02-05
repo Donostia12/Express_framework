@@ -8,6 +8,7 @@ const ServiceController = require("../app/Http/Controllers/ServiceController");
 const ProductController = require("../app/Http/Controllers/ProductController");
 const PorfolioController = require("../app/Http/Controllers/PortfolioController");
 const AboutController = require("../app/Http/Controllers/aboutController");
+const UserController = require("../app/Http/Controllers/UserController");
 //rute untuk api
 router.get("/about/api", ApiMobile.about);
 router.get("/news/api", ApiMobile.news);
@@ -91,4 +92,5 @@ router.post(
   AboutController.update
 );
 
-router.get("/login", IndexController.login);
+router.get("/login", UserController.index);
+router.post("/login", UserController.login);

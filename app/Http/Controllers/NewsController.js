@@ -85,7 +85,7 @@ exports.update = (req, res) => {
         return res.status(404).send("News not found");
       }
 
-      res.redirect("/news"); // Arahkan kembali ke halaman detail berita
+      res.redirect("/news");
     }
   );
 };
@@ -101,6 +101,6 @@ exports.delete = (req, res) => {
       return res.status(404).send("News not found");
     }
 
-    res.redirect("/news"); // Arahkan ke halaman daftar berita
+    res.redirect("/news");
   });
 };
