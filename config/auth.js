@@ -1,6 +1,6 @@
 const { db } = require("./server");
 
-let session = {}; // Simulasi session sederhana
+let session = {};
 
 const Auth = {
   async login(email, password) {
