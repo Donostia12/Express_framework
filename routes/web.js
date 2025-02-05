@@ -41,6 +41,7 @@ router.post(
   Storage.upload.single("image"),
   ServiceController.store
 );
+
 router.get("/service/edit/:id", ServiceController.show);
 router.post(
   "/service/update/:id",

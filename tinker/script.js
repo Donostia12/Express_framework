@@ -1,6 +1,6 @@
 const { hash } = require("bcrypt");
 const Auth = require("../config/auth");
-const Hash = require("../config/Hash");
+const Hash = require("../config/hash");
 Auth.login("test@gmail.com", "123");
 
 const password = "mySecretPassword";
