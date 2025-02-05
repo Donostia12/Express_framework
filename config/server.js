@@ -1,10 +1,10 @@
 const mysql = require("mysql");
-
+require("dotenv").config();
 const db = mysql.createConnection({
-  host: "192.168.1.5",
-  user: "root",
-  password: "",
-  database: "apibaligatra",
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASS,
+  database: process.env.DATABASE,
 });
 db.connect((err) => {
   if (err) {
