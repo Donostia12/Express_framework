@@ -89,3 +89,5 @@ router.post(
   Storage.upload.single("image"),
   AboutController.update
 );
+
+router.get("/login", IndexController.login);
